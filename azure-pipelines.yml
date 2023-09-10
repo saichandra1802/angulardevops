@@ -10,11 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: NodeTool@0
+- task: NodeTaskRunnerInstaller@0
   inputs:
-    versionSource: 'fromFile'
-    checkLatest: true
-
+    nodeVersion: '10'
 - script: |
     npm install -g @angular/cli
     npm install
