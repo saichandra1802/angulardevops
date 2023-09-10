@@ -1,0 +1,12 @@
+FROM alpine:3.14
+
+# Building Angular app
+WORKDIR /app
+COPY package.json /app
+
+RUN apk add --update nodejs npm && npm install && npm install http-server -g
+COPY . /app
+
+# Creating bundle
+RUN npm run build -- --prod --output-hashing=all
+
